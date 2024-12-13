@@ -1,20 +1,19 @@
 import axios from "axios";
-
-const API_URL = "http://localhost:3000/api";
+import { backendURL } from "../utils/constants";
 
 export const register = async (data) => {
-  const url = `${API_URL}/auth/register`;
+  const url = `${backendURL}/auth/register`;
   return await axios.post(url, data);
 };
 export const login = async (data) => {
-  const url = `${API_URL}/auth/login`;
+  const url = `${backendURL}/auth/login`;
   return await axios.post(url, data);
 };
 
 export const getUserMe = async () => {
   const accessToken = localStorage.getItem("accessToken");
 
-  return await axios.get(`${API_URL}/users/me`, {
+  return await axios.get(`${backendURL}/users/me`, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
       "Content-Type": "application/json",
@@ -25,7 +24,7 @@ export const getUserMe = async () => {
 export const getAllUsers = async () => {
   const accessToken = localStorage.getItem("accessToken");
 
-  return await axios.get(`${API_URL}/users`, {
+  return await axios.get(`${backendURL}/users`, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
       "Content-Type": "application/json",

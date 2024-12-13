@@ -1,1 +1,1 @@
-export const backendURL = "http://localhost:3000/api";
+export const backendURL = "https://ec-2hand-be-xi.vercel.app/api";
